@@ -13,3 +13,13 @@ Item.all.each do |item|
   item.save
   counter += 1
 end
+
+# User.create(name: 'Alex', email:'alex@home.com')
+10.times do 
+  User.create(
+  :name => Faker::Name.name,    
+  :password => Devise.friendly_token.first(8),
+  :email => Faker::Internet.email 
+  )
+  
+end
