@@ -1,7 +1,8 @@
 class CreateCarts < ActiveRecord::Migration
   def change
     create_table :carts do |t|
-      t.integer :user_id
+      add_reference :carts, :user, index: true
+      add_foreign_key :carts, :users
     end
 
   end

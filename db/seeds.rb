@@ -20,6 +20,5 @@ end
   :name => Faker::Name.name,    
   :password => Devise.friendly_token.first(8),
   :email => Faker::Internet.email 
-  )
-  
+  ) 
 end

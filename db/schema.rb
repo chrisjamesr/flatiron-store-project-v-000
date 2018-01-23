@@ -17,8 +17,6 @@ ActiveRecord::Schema.define(version: 20180121215345) do
     t.integer "user_id"
   end
 
-  add_index "carts", ["user_id"], name: "index_carts_on_user_id"
-
   create_table "categories", force: :cascade do |t|
     t.string "title"
   end
