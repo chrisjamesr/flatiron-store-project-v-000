@@ -2,6 +2,13 @@
 
 <ul>
 <% @category.items.each do |item| %>
-    <li><%= link_to item.title, item_path(item) %></li>
+    <li>
+      <%= link_to item.title, item_path(item) %> -  $<%=item.price.to_f/100%>
+      <%#=form_for item, cart_path(current_cart)  do |f| %>
+        <%#= f.submit 'Add to Cart'%>
+      <%# end %>
+      <!-- <input type="submit" value='Add to Cart') -->
+       
+    </li>
 <% end %>
 </ul>
