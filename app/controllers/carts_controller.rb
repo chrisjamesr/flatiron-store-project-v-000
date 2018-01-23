@@ -10,7 +10,7 @@ helper_method :current_cart
   end
 
   def update
-    @cart = Cart    
+    # @cart = Cart    
   end
 
 
