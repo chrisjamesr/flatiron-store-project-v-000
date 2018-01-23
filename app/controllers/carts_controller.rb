@@ -9,8 +9,8 @@ helper_method :current_cart
     @cart = Cart.find(params[:id]) || current_cart
   end
 
-  def create
-    
+  def update
+    @cart = Cart    
   end
 
 
