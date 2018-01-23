@@ -22,3 +22,9 @@ end
   :email => Faker::Internet.email 
   ) 
 end
+
+User.all do |user|
+  Cart.create(:user => user) do |cart|
+    cart.line_items.build(:item => Item.first, :quantity =>1)
+  end
+end
