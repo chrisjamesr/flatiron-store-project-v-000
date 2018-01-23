@@ -14,5 +14,9 @@ class User < ActiveRecord::Base
     save
   end
 
+  def orders
+    self.carts.where(:status => 'submitted')
+  end
+
   
 end
