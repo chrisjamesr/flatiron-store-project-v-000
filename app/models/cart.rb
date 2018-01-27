@@ -20,4 +20,16 @@ class Cart < ActiveRecord::Base
     total      
   end
 
+  def checkout
+    subtract_inventory
+    self.update(:status => "submitted")
+  end
+
+  def subtract_inventory
+    self.line_items.each do |line_item|
+      item = Item.find(line_item.item.id)
+      item.update(inventory: (item.inventory - line_item.quantity))
+    end
+  end
+
 end  #  End of Class
