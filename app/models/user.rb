@@ -14,10 +14,15 @@ class User < ActiveRecord::Base
     save
   end
 
-
   def orders
     self.carts.where(:status => 'submitted')
   end
+
+  def remove_current_cart
+    self.current_cart = nil
+    save
+  end
+
 
   
 end
