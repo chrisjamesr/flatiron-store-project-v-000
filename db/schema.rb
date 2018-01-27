@@ -38,7 +38,6 @@ ActiveRecord::Schema.define(version: 20180121215345) do
   end
 
   create_table "orders", force: :cascade do |t|
-    t.string  "status"
     t.integer "user_id"
   end
 
