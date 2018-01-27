@@ -1,9 +1,5 @@
 class CartsController < ApplicationController
-helper_method :current_cart
 
-  def index
-    @carts = Cart.where(:user => current_user)
-  end
 
   def show
     @cart = current_cart || Cart.find(params[:id]) 
