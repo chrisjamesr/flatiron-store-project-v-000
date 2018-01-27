@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
   helper_method :current_cart
-  # before_action :cart
+  before_action :cart, if: :current_user
   
 
   # def current_user
@@ -14,13 +14,16 @@ class ApplicationController < ActionController::Base
     current_user.current_cart
   end
 
+  def cart
+    @cart = current_cart 
+  end
  
 
-  def logged_in?
-    !!session[:user_id]
-  end
+  # def logged_in?
+  #   !!current_user
+  # end
 
   def require_login
-    redirect_to root_path unless logged_in?
+    redirect_to root_path unless current_user
   end
 end
