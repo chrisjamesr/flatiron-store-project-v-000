@@ -4,15 +4,12 @@ class Cart < ActiveRecord::Base
   belongs_to :user
 
   def add_item(item_id)
-    # if Item.find(item_id).inventory > 0
-    # if !self.status
-      if line_item = self.line_items.find_by(:item_id => item_id) 
-        line_item.quantity += 1
-      else
-        line_item = self.line_items.build(:item => Item.find(item_id))
-      end       
-      line_item
-    # end
+    if line_item = self.line_items.find_by(:item_id => item_id) 
+      line_item.quantity += 1
+    else
+      line_item = self.line_items.build(:item => Item.find(item_id))
+    end       
+    line_item
   end
 
   def total
